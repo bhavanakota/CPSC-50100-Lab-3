@@ -1,0 +1,214 @@
+import java.util.Random;
+import java.util.Scanner;
+
+	/* Exercise 1
+	 * In the AgeGuess.java program from the previous lab, 
+	 * insert a while loop so that the user has to keep guessing 
+	 * the age until he or she gets it right.
+	 */
+
+public class AgeGuess {
+
+	public static void main(String[] args) {
+		
+		// Created a new variable age
+		
+		int ageGuess;
+		int age; 
+		
+		Scanner scan = new Scanner(System.in);
+		
+		// Saves the users guess into the ageGuess variable 
+		
+		System.out.print("Enter a guess for Age: ");
+		ageGuess = scan.nextInt();
+		
+		
+		Random rand = new Random();
+	
+		// Initializes age to a random variable between 0 and 100
+		
+		int upperbound = 101;
+		age = rand.nextInt(upperbound);
+
+		// Incorporating a while loop for the user to keep guessing the age
+		
+		while ( age != ageGuess) 
+		{
+			System.out.println("Incorrect guess. Try again! ");
+			System.out.print("Guess the age: ");
+			ageGuess = scan.nextInt();
+		}	
+	
+	}
+
+}
+-------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+	/* Exercise 2
+	 * Design and implement an application that reads an integer value and 
+	 * prints the sum of all even integers between 2 and the input value, 
+	 * inclusive. Print an error message if the input value is less than 2 
+	 * and have the user reenter the number. Prompt accordingly. 
+	 * Call this EvenNumSum.java
+	 */
+
+public class EvenNumSum {
+
+	public static void main(String[] args) {
+		
+		 // Creating variables 
+		
+		 int number; 
+		 int i =0; 
+		 int total =0; 
+		 
+		 Scanner scan = new Scanner(System.in);
+		 
+		 System.out.print("Enter an integer greater than 2: ");
+		 number = scan.nextInt();
+		 
+		 // Inserting a while loop to make sure the inputed number is greater than 2 
+		 while (number < 2)
+			{
+				System.out.println("Error. Number less than 2. ");
+				System.out.print("Please enter a number greater than 2: ");
+				number = scan.nextInt();
+			}	
+		 
+		 // Adding the for loop to add every number that is divisible by 2 without a remainder
+		 for (i = 0; i <= number; i++)
+		 {
+			 if (i % 2 != 0);
+			 else 
+				 total = total + i; 
+		 }
+		 
+		 System.out.print("The sum of the even numbers is " + total);
+		 
+		 scan.close();
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+	/*	Exercise 3 
+	 * 	Design and implement an application that reads a string 
+	 *	from the user and then determines and prints how many of
+	 *  each lowercase vowel (a, e, i, o, and u) appear in the 
+	 *  entire string. Have a separate counter for each vowel. 
+	 *  Also count and print the number of non-vowel characters. 
+	 *  Call this VowelCounter.java
+	 */
+
+public class VowelCounter {
+
+	public static void main(String[] args) {
+
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.print("Enter a sentence: ");
+		String Sentence = scan.nextLine();
+		
+		scan.close();
+		
+			int aCount = 0;
+			int eCount = 0;
+			int iCount = 0; 
+			int oCount = 0; 
+			int uCount = 0; 
+			int i = 0;
+			int non = 0;
+			
+		// Using the for loop with else statements to count each variable
+			
+		for (i = 0; i < Sentence.length(); i++)
+			{ char c = Sentence.charAt(i); 
+		
+				if (c == 'a')
+					aCount ++ ;
+				
+				else if (c == 'e')
+				{
+					eCount ++ ;
+				}
+				
+				else if (c == 'i')
+				{	
+					iCount ++ ;
+				}
+				
+				else if (c == 'o')
+				{	
+					oCount ++;
+				}
+				
+				else if (c == 'u')
+				{
+					uCount ++;
+				}
+				
+				else 
+				{
+					non ++;
+				}
+			}
+		
+		System.out.print("Number of  a's in the string: " + aCount +"\n");
+		System.out.print("Number of  e's in the string: " + eCount +"\n");
+		System.out.print("Number of  i's in the string: " + iCount +"\n");
+		System.out.print("Number of  o's in the string: " + oCount +"\n");
+		System.out.print("Number of  u's in the string: " + uCount +"\n");
+		System.out.print("Number of non vowels in the string: " + non +"\n");
+	}	 
+	
+}	
+-------------------------------------------------------------------------------------------------------------------------------
+	/* Exercise 4: Create a project with a class called Box (w/ main)
+	 * that contains the following instance variable: int size = 0;
+	 * Then add a method to this class named printBox with no parameters 
+	 * and void return type, that prints out to the screen a set of * (star) 
+	 * characters with size rows and size columns. Enter code in the main 
+	 * method to create a Box object, change its size to 5 (using the dot operator), 
+	 * and then invoke its printBox method. Run the program and fix any errors you may have.
+	 */
+
+public class Box {
+
+	// Creating the variable size 
+	static int size = 0;
+	
+	public static void main(String[] args) 
+		{ 
+		
+		// Creating the object box and then setting the size equal to 5
+		Box box = new Box(); 
+			
+		box.size = 5; 
+		
+		// Printing the box 
+		printBox(); 
+			
+		}
+	
+		// Creating the new method printBox 
+		public static void printBox() 
+		{ 
+			
+		// Creating a for loop to repeat until size requirement is fulfilled 
+			for (int i = 0; i < size; i++)
+			{
+				for (int j = 0; j < size; j++)
+				{
+					System.out.print("*");
+				}
+				System.out.println();
+			}
+			
+			
+		}
+		
+	}
+	
+
